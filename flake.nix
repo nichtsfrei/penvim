@@ -39,6 +39,7 @@
         [
           nodejs
           ripgrep
+          fzf
           fish
           git
           curl
@@ -63,6 +64,7 @@
           # https://github.com/rust-lang/cargo/issues/10096
           rustfmt
           cargo
+          gcc
           rustc
           clang-tools
           #llvm # for debugging rust
