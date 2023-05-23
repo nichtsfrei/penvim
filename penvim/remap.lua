@@ -19,11 +19,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy entire buffer to system
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to unnamed register" })
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format" })
-
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Next quickfix" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Prev quickfix" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Next location" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Prev location" })
-
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/theprimeagen/packer.lua<CR>");

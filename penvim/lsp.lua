@@ -5,15 +5,34 @@ local capabilities = vim.tbl_extend('keep', vim.lsp.protocol
     .make_client_capabilities(),
     cmp_nvim_lsp.default_capabilities());
 
-
-require('rust-tools').setup({
+local rt = require('rust-tools')
+rt.setup({
     server = {
         capabilities = capabilities,
-        standalone = false
+        standalone = false,
+        on_attach = function(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+            --vim.keymap.set("n", "<Leader>vce", , {buffer = bufnr })
+            vim.keymap.set("n", "<leader>vce", "<cmd>lua require'rust-tools'.expand_macro.expand_macro()<CR>");
+        end,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+        }
     },
     tools = {
         autoSetHints = true,
-        inlay_hints = { auto = true, only_current_line = true },
+        inlay_hints = {
+            auto = true,
+            only_current_line = false,
+            show_parameter_hints = true
+        },
         runnables = { use_telescope = true }
     }
 })
@@ -64,11 +83,11 @@ require("lsp-format").setup {}
 
 local servers = { 'clangd', 'pyright', 'svelte', 'bashls' }
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {  capabilities = capabilities }
+    lspconfig[lsp].setup { capabilities = capabilities }
 end
 
 require 'lspsaga'.init_lsp_saga({
-    use_diagnostic_virtual_text = false,
+    use_diagnostic_virtual_text = true,
     code_action_prompt = {
         enable = true,
         sign = false,
