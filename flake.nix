@@ -108,12 +108,13 @@
             start = with pkgs.vimPlugins; [
               plenary-nvim
               telescope-nvim
+              fidget-nvim # show lsp status in bottom right but not status line
+              SchemaStore-nvim # json schemas
 
               crates-nvim # inline intelligence for Cargo.toml
               rust-tools-nvim
               null-ls-nvim # formatting and linting via lsp system
               lsp-format-nvim # still needed?
-              neodev-nvim # help for neovim lua api
               lspsaga-nvim # maybe not?
               nvim-lspconfig
 
@@ -137,6 +138,7 @@
               comment-nvim
               # Autocompletion
               nvim-cmp # generic autocompleter
+              nvim-lspconfig
               cmp-treesitter
               cmp-clippy
               cmp-copilot

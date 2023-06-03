@@ -6,12 +6,8 @@ require("penvim.colors")
 require("penvim.telescope")
 require("penvim.undotree")
 require("penvim.trouble")
-require("penvim.lsp")
-
-local augroup = vim.api.nvim_create_augroup
-
-local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup('HighlightYank', {})
+require("penvim.lsp").diagnostics()
+require("penvim.lsp").completions()
 
 function R(name)
     require("plenary.reload").reload_module(name)
