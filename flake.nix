@@ -50,7 +50,7 @@
           shellcheck
           lua-language-server
           nodePackages.prettier
-          nodePackages.vscode-langservers-extracted
+          #nodePackages.vscode-langservers-extracted
           nodePackages.svelte-language-server
           nodePackages.diagnostic-languageserver
           nodePackages.typescript-language-server
