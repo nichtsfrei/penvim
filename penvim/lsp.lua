@@ -233,7 +233,7 @@ M.completions = function()
             ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down
             -- C-b (back) C-f (forward) for snippet placeholder navigation.
             ['<C-Space>'] = cmp.mapping.complete(),
-            ['<CR>'] = cmp.mapping.confirm {
+            ['<C-Y>'] = cmp.mapping.confirm {
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = true,
             },
@@ -275,3 +275,4 @@ M.completions = function()
 end
 
 return M
+

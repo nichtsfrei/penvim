@@ -17,7 +17,7 @@ To integrate it
 	  inherit system;
 	  overlays = [
 		(final: prev: {
-		  pwnvim = inputs.pwnvim.packages.${final.system}.pwnvim;
+		  penvim = inputs.pwnvim.packages.${final.system}.penvim;
 		})
 	  ];
 	};
