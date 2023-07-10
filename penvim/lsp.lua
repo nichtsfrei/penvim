@@ -150,7 +150,7 @@ M.diagnostics = function()
         }
     }
 
-    local servers = { 'clangd', 'pyright', 'svelte', 'bashls', 'nil_ls' }
+    local servers = { 'clangd', 'pyright', 'svelte', 'bashls', 'nil_ls', 'gopls' }
     for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup { capabilities = capabilities }
     end
@@ -209,7 +209,7 @@ M.diagnostics = function()
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
             vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-            vim.keymap.set('n', '<leader>f', function()
+            vim.keymap.set('n', 'gf', function()
                 vim.lsp.buf.format { async = true }
             end, opts)
         end,
@@ -275,4 +275,3 @@ M.completions = function()
 end
 
 return M
-

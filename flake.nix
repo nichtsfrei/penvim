@@ -56,12 +56,7 @@
           nodePackages.typescript-language-server
           nodePackages.bash-language-server
           rust-analyzer
-          # rust-analyzer is currently in a partially broken state as it cannot find rust sources so can't
-          # help with native language things, which sucks. Here are some issues to track:
-          # https://github.com/rust-lang/rust/issues/95736
-          # https://github.com/rust-lang/rust-analyzer/issues/13393
-          # https://github.com/mozilla/nixpkgs-mozilla/issues/238
-          # https://github.com/rust-lang/cargo/issues/10096
+          gopls
           rustfmt
           cargo
           gcc
