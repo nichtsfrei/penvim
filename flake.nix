@@ -62,6 +62,7 @@
           gcc
           rustc
           clang-tools
+          marksman
           #llvm # for debugging rust
           #lldb # for debugging rust
           #vscode-extensions.vadimcn.vscode-lldb # for debugging rust

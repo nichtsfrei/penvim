@@ -150,7 +150,7 @@ M.diagnostics = function()
         }
     }
 
-    local servers = { 'clangd', 'pyright', 'svelte', 'bashls', 'nil_ls', 'gopls' }
+    local servers = { 'clangd', 'pyright', 'svelte', 'bashls', 'nil_ls', 'gopls', 'marksman' }
     for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup { capabilities = capabilities }
     end
