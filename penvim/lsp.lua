@@ -61,48 +61,10 @@ M.diagnostics = function()
     end
 
     -- LSP stuff - minimal with defaults for now
-    local null_ls = require("null-ls")
-
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    local formatting = null_ls.builtins.formatting
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    local diagnostics = null_ls.builtins.diagnostics
-    local codeactions = null_ls.builtins.code_actions
 
     require("lsp-format").setup {}
 
-    null_ls.setup {
-        debug = false,
-        sources = {
-            -- formatting.lua_format,
-            formatting.alejandra, -- for nix
-            formatting.prismaFmt, -- for node prisma db orm
-            formatting.prettier.with {
 
-                -- extra_args = {
-                --     "--use-tabs", "--single-quote", "--jsx-single-quote"
-                -- },
-                -- Disable markdown because formatting on save conflicts in weird ways
-                -- with the taskwiki (roam-task) stuff.
-                filetypes = {
-                    "javascript", "javascriptreact", "typescript",
-                    "typescriptreact", "vue", "scss", "less", "html", "css",
-                    "json", "jsonc", "yaml", "graphql", "handlebars", "svelte"
-                },
-                disabled_filetypes = { "markdown" }
-            }, diagnostics.eslint_d.with {
-            args = {
-                "-f", "json", "--stdin", "--stdin-filename", "$FILENAME"
-            }
-        },                                            -- diagnostics.vale,
-            codeactions.eslint_d, codeactions.statix, -- for nix
-            diagnostics.statix,                       -- for nix
-            null_ls.builtins.hover.dictionary, codeactions.shellcheck,
-            diagnostics.shellcheck
-            -- removed formatting.rustfmt since rust_analyzer seems to do the same thing
-        },
-        on_attach = attached
-    }
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
