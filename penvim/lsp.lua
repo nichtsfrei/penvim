@@ -28,7 +28,6 @@ M.diagnostics = function()
     }
 
 
-    require "fidget".setup {} -- shows status of lsp clients as they issue updates
     vim.diagnostic.config({
         virtual_text = true,
         severity_sort = true,

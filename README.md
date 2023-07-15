@@ -24,3 +24,9 @@ To integrate it
   }
 }
 ```
+
+To update it run:
+
+```
+nix flake update .
+```
