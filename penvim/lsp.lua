@@ -138,15 +138,6 @@ M.diagnostics = function()
         capabilities = capabilities
     }
 
-    require 'lspsaga'.init_lsp_saga({
-        use_diagnostic_virtual_text = true,
-        code_action_prompt = {
-            enable = true,
-            sign = false,
-            sign_priority = 20,
-            virtual_text = true
-        }
-    })
     vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)

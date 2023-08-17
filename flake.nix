@@ -107,7 +107,6 @@
               crates-nvim # inline intelligence for Cargo.toml
               rust-tools-nvim
               lsp-format-nvim # still needed?
-              lspsaga-nvim # maybe not?
               nvim-lspconfig
 
               trouble-nvim
